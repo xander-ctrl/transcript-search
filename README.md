@@ -24,7 +24,7 @@ Search for specific keywords or phrases within the transcripts (captions) of all
 4. **Running the Script**
 
    * The script will ask you to:
-     * Enter the YouTube channel URL (in the format `https://www.youtube.com/@channelname`).
+     * Enter the YouTube channel URL (in the format `https://www.youtube.com/@channelname` **or** `youtube.com/@channelname`).
      * Enter the keyword or phrase you want to search for.
 
 5. **Output**
