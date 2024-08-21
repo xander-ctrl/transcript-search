@@ -2,7 +2,7 @@ import os
 import json
 from googleapiclient.discovery import build
 from youtube_transcript_api import YouTubeTranscriptApi
-from concurrent import futures
+import concurrent.futures
 
 config_file = "config.json" 
 
@@ -101,9 +101,9 @@ def search_keyword_in_channel(youtube, channel_url, keyword):
     videos = get_channel_videos(youtube, channel_url)
     results = []
     
-    with futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = [executor.submit(process_video, video, keyword) for video in videos]
-        for future in futures.as_completed(futures):
+        for future in concurrent.futures.as_completed(futures):
             result = future.result()
             if result:
                 results.append(result)
